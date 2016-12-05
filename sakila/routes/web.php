@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/','FrontController@index');
+Route::get('contacto','FrontController@Contacto');
+Route::get('reviews','FrontController@reviews');
+Route::get('admin','FrontController@admin');
+
+Route::resource('staff','StaffController');
+
+Route::resource('category','CategoryController');
+
+
