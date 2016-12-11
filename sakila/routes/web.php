@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,5 +22,8 @@ Route::get('admin','FrontController@admin');
 Route::resource('staff','StaffController');
 
 Route::resource('category','CategoryController');
+Route::resource('actor','ActorController');
+
+
 
 

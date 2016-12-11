@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreContactRequest;
+use App\Staff;
+
 
 class StaffController extends Controller
 {
@@ -34,7 +38,20 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-        return "hola empleado";
+        Staff::create([
+
+           'first_name' => $request['first_name'],
+           'last_name' => $request['last_name'],
+           'address_id' => $request['address_id'],
+           'picture' => $request['picture'],
+           'email' => $request['email'],
+           'store_id' => $request ['store_id'],
+           'active' => $request ['active'],
+           'username' => $request ['username'],
+           'password' => request ['password'],
+           'username'=>$request['username'],
+
+            ]);
     }
 
     /**
@@ -56,7 +73,8 @@ class StaffController extends Controller
      */
     public function edit($id)
     {
-        //
+        $staff = Staff::find($id);
+        return view('staff.edit', ['staff'=>$staff]);
     }
 
     /**
@@ -68,7 +86,9 @@ class StaffController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $staff = Staff::find($id);
+         $staff->fill($request->all());
+         
     }
 
     /**

@@ -4,13 +4,12 @@
 <br>
 
 {!!Form::open(['route'=>'category.store', 'method'=>'POST'])!!}
-	<div class="form-group">
-		{!!Form::label('Nombre:')!!}
-		{!!Form::text('name', null,['class'=>'form-control','placeholder'=>'Ingresa la Categoria'])!!}
-	</div>
+	
+	@include('forms.categoryForm')
+	
 	{!!Form::submit('Agregar',['class'=>'btn btn-primary'])!!}
-	{!!Form::submit('Modificar',['class'=>'btn btn-primary'])!!}
-	{!!Form::submit('Eliminar',['class'=>'btn btn-primary'])!!}
+	<br><br>
+	<p><a href="/category">Regresar</a></p>	
 {!!Form::close()!!}
 
 @stop

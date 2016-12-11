@@ -20,4 +20,10 @@ class Staff extends Model
 	   'password',
    
    ];
+
+   public function setPasswordAtribute($valor){
+   	if(!empty($valor)){
+   		$this->attributes['password'] = \Hash::make($valor);
+   	}
+   }
 }

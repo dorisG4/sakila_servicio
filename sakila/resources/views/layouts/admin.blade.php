@@ -83,7 +83,7 @@
                             <a href="#"><i class="fa fa-film fa-fw"></i>Registro Pelicula<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#"><i class='fa fa-plus fa-fw'></i>Categoria</a>
+                                    <a href="category"><i class='fa fa-plus fa-fw'></i>Categoria</a>
                                 </li>
                                  <li>
                                     <a href="#"><i class='fa fa-plus fa-fw'></i>Actor</a>
