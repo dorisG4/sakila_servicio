@@ -28,7 +28,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Cine OCD</a>
+                <a class="navbar-brand" href="admin">Cine OCD</a>
             </div>
            
 
@@ -51,22 +51,21 @@
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
+                   
+                 <ul class="nav" id="side-menu">
                         <li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i>Cliente<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-users fa-fw"></i>Clientes<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#"><i class='fa fa-plus fa-fw'></i> Agregar </a>
+                                    <a href="#"><i class='fa fa-list-ol fa-fw'></i> Agregar </a>
                                 </li>
-                                <li>
-                                    <a href="#"><i class='fa fa-list-ol fa-fw'></i> Clientes </a>
-                                </li>    
+                                  
                             </ul>
                          
                         </li>
 
                         <li>
-                            <a href="#"><i class="fa fa-film fa-fw"></i>Renta de Pelicula<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-film fa-fw"></i>Renta de Peliculas<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                 <li>
                                     <a href="#"><i class='fa fa-plus fa-fw'></i> Renta </a>
@@ -80,16 +79,16 @@
 
 
                         <li>
-                            <a href="#"><i class="fa fa-film fa-fw"></i>Registro Pelicula<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-film fa-fw"></i>Registro Peliculas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="category"><i class='fa fa-plus fa-fw'></i>Categoria</a>
+                                    <a href="category"><i class='fa fa-plus fa-fw'></i>Categorias</a>
                                 </li>
                                  <li>
-                                    <a href="#"><i class='fa fa-plus fa-fw'></i>Actor</a>
+                                    <a href="actor"><i class='fa fa-plus fa-fw'></i>Actores</a>
                                 </li>
                                  <li>
-                                    <a href="#"><i class='fa fa-plus fa-fw'></i>Idioma</a>
+                                    <a href="language"><i class='fa fa-plus fa-fw'></i>Idiomas</a>
                                 </li>
                                 <li>
                                     <a href="#"><i class='fa fa-list-ol fa-fw'></i> Peliculas</a>
@@ -100,14 +99,12 @@
 
 
                         <li>
-                            <a href="#"><i class="fa fa-child fa-fw"></i> Empleado<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-child fa-fw"></i> Empleados<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="#"><i class='fa fa-list-ol fa-fwfw'></i> Agregar</a>
                                 </li>
-                                <li>
-                                    <a href="#"><i class='fa fa-list-ol fa-fw'></i> Empleados</a>
-                                </li>
+                               
                             </ul>
                         </li>
 
@@ -142,13 +139,23 @@
                         </li>
 
                     </ul>
+
                 </div>
             </div>
 
      </nav>
-
         <div id="page-wrapper">
         <br>
+            <div>      
+              @if(Session::has('message'))
+                <div class="alert alert-success alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                   {{Session::get('message')}}
+                </div>
+              @endif
+
+            </div>
+            
         @yield('content')
             
         </div>

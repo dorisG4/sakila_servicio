@@ -1,20 +1,20 @@
 @extends('layouts.admin')
 
 @section('content')
-<h2>Agregar Categoria</h2>
+<h2>Agregar Pelicula</h2>
 <br>
 
 
-{!!Form::open(['route'=>'category.store', 'method'=>'POST'])!!}
+{!!Form::open(['route'=>'film.store', 'method'=>'POST'])!!}
 	
-	@include('forms.categoryForm')
+	@include('forms.filmForm')
 
 	<div class="form-group col-md-2">
     {!!Form::submit('Agregar',['class'=>'btn btn-primary'])!!}
 	</div>
 
 	<div class="form-group col-md-2">
-	<a href="{{ route('category.index')}}" class="btn btn-warning">Cancelar</a>
+	<a href="{{ route('film.index')}}" class="btn btn-warning">Cancelar</a>
 	</div>
 		
 {!!Form::close()!!}

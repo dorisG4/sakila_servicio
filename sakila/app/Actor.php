@@ -12,4 +12,9 @@ class Actor extends Model
    'first_name',
    'last_name',
    ];
+
+     public function scopeSearch($query, $name)
+   {
+   	return $query->where('first_name', 'LIKE', "%$name%");
+   }
 }

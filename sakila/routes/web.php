@@ -19,10 +19,14 @@ Route::get('contacto','FrontController@Contacto');
 Route::get('reviews','FrontController@reviews');
 Route::get('admin','FrontController@admin');
 
-Route::resource('staff','StaffController');
+
 
 Route::resource('category','CategoryController');
 Route::resource('actor','ActorController');
+Route::resource('language','LanguageController');
+Route::resource('film','FilmController');
+
+Route::resource('staff','StaffController');
 
 
 

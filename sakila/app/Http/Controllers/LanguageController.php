@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreContactRequest;
+use App\Language;
+use Session;
+use Redirect;
 
 class LanguageController extends Controller
 {
@@ -11,9 +16,10 @@ class LanguageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $languages=Language::search($request->name)->orderBy('id','DESC')->paginate(5);
+        return view('language.index', compact('languages')); 
     }
 
     /**
@@ -23,7 +29,7 @@ class LanguageController extends Controller
      */
     public function create()
     {
-        //
+         return view('language.create');
     }
 
     /**
@@ -34,7 +40,12 @@ class LanguageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Language::create([
+            'name' => $request['name'],
+            ]);
+
+         Session::flash('message','Idioma creado correctamente');
+         return Redirect::to('/language');
     }
 
     /**
@@ -45,7 +56,7 @@ class LanguageController extends Controller
      */
     public function show($id)
     {
-        //
+         //
     }
 
     /**
@@ -56,7 +67,8 @@ class LanguageController extends Controller
      */
     public function edit($id)
     {
-        //
+         $language= Language::find($id);
+         return view('language.edit',['language'=>$language]);
     }
 
     /**
@@ -68,7 +80,12 @@ class LanguageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $language = Language::find($id);
+         $language->fill($request->all());
+         $language->save();
+
+         Session::flash('message','Idioma actualizado correctamente');
+         return Redirect::to('/language');
     }
 
     /**
@@ -79,6 +96,8 @@ class LanguageController extends Controller
      */
     public function destroy($id)
     {
-        //
+         Language::destroy($id);
+         Session::flash('message','Idioma eliminado correctamente');
+         return Redirect::to('/language');
     }
 }

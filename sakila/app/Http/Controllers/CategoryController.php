@@ -2,8 +2,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreContactRequest;
 use App\Category;
@@ -18,15 +16,10 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories=Category::All();
-        // return view('category.index', compact('categories'));
-
-        $categories=Category::orderBy('id','ASC')->paginate(3);
-        // $categories=Category::name($request->get('name'))->orderBy('id','ASC')->paginate(3);
-        return view('category.index', compact('categories'));
-   
+        $categories=Category::search($request->name)->orderBy('id','DESC')->paginate(5);
+        return view('category.index', compact('categories')); 
     }
 
     /**
@@ -51,7 +44,7 @@ class CategoryController extends Controller
             'name' => $request['name'],
             ]);
 
-         Session::flash('message','Category Creada Correctamente');
+         Session::flash('message','Categoria creada correctamente');
          return Redirect::to('/category');
     }
 
@@ -92,7 +85,7 @@ class CategoryController extends Controller
          $category->fill($request->all());
          $category->save();
 
-         Session::flash('message','Categoria Actualizada Correctamente');
+         Session::flash('message','Categoria actualizada correctamente');
          return Redirect::to('/category');
     }
 
@@ -104,8 +97,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::destroy($id);
-        Session::flash('message','Categoria Eliminada Correctamente');
+         Category::destroy($id);
+         Session::flash('message','Categoria eliminada correctamente');
          return Redirect::to('/category');
 
     }

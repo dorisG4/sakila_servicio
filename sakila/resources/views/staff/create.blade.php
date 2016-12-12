@@ -3,20 +3,17 @@
 
 <h2>Empleado</h2>
 <br>
+<div class="form-group col-md-4">
 
 {!!Form::open(['route'=>'staff.store', 'method'=>'POST'])!!}
 	<div class="form-group">
 		{!!Form::label ('Nombre:' )!!}
-		{!!Form::text('first_name', null,['class'=>'form-control','placeholder'=>'Ingresa la Nombre'])!!}
-		<br>
+		{!!Form::text('first_name', null,['class'=>'form-control','placeholder'=>'Ingresa el Nombre'])!!}
+		<br>	
 
 		{!!Form::label ('Apellido:' )!!}
-		{!!Form::text('last_name', null,['class'=>'form-control','placeholder'=>'Ingresa la Apellido'])!!}
-		<br>
-
-		{!!Form::label ('Dirección:' )!!}
-		{!!Form::text('address_id', null,['class'=>'form-control'])!!}
-		<br>
+		{!!Form::text('last_name', null,['class'=>'form-control','placeholder'=>'Ingresa el Apellido'])!!}
+		<br>	
 
 		{!!Form::label ('Foto:' )!!}
 		{!!Form::text('picture', null,['class'=>'form-control'])!!}
@@ -44,9 +41,43 @@
 
 
 	</div>
-	{!!Form::submit('Agregar',['class'=>'btn btn-primary'])!!}
-	{!!Form::submit('Modificar',['class'=>'btn btn-primary'])!!}
-	{!!Form::submit('Eliminar',['class'=>'btn btn-primary'])!!}
+	
+</div>
+<div class="form-group col-md-2">
+		
+
+</div>
+		
+<div class="form-group col-md-4">
+		{!!Form::label ('Dirección 1:' )!!}
+		{!!Form::text('last_name', null,['class'=>'form-control','placeholder'=>'Ingresa el Apellido'])!!}
+		<br>
+
+		{!!Form::label ('Dirección 2:' )!!}
+		{!!Form::text('address_id', null,['class'=>'form-control'])!!}
+		<br>
+
+		{!!Form::label ('Distrito:' )!!}
+		{!!Form::text('address_id', null,['class'=>'form-control'])!!}
+		<br>
+
+		{!!Form::label ('Ciudad:' )!!}
+		{!!Form::text('address_id', null,['class'=>'form-control'])!!}
+		<br>
+
+		{!!Form::label ('Codigo Postal:' )!!}
+		{!!Form::text('address_id', null,['class'=>'form-control'])!!}
+		<br>
+
+		{!!Form::label ('Telefono:' )!!}
+		{!!Form::text('address_id', null,['class'=>'form-control'])!!}
+		<br>
+
+
+ {!!Form::submit('Agregar',['class'=>'btn btn-primary'])!!}
+</div>
+
+   
 {!!Form::close()!!}
 
 

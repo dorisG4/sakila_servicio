@@ -1,43 +1,36 @@
 @extends('layouts.admin')
 
-	  @if(Session::has('message'))
-		<div class="alert alert-success alert-dismissible" role="alert">
-		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		   {{Session::get('message')}}
-		</div>
-	  @endif
-
 @section('content')
+<h2>Categorias</h2>
 
+<!--Buscador de Categoria -->
 		{!! Form::open(['route' => 'category.index', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search'])!!}
 		    <div class="form-group">
-		     {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Categoria']) !!}
+		     {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Categoria...']) !!}    
 		    </div>
             <button type="submit" class="btn btn-default">Buscar</button>
-        {!! Form::close() !!}
+        {!! Form::close() !!} 
+<!--Fin Buscador --> 
+			<div class="form-group">
+		     <a href="{{ route('category.create')}}" class="btn btn-info">Registrar nueva categoria</a>
+		    </div>
 
-<table class="table">
+<table class="table"> 
     <thead>
-	    <th>
-        {{ Form::open(array('url' => 'category/create', 'method' => 'get')) }}   
-            {!!Form::submit('Nueva Categoria',['class'=>'btn btn-primary'])!!}
-        {{ Form::close() }}	    
- 
-		</th>
+	    <th></th>
 		<th></th>
 		<th></th>
 		
 	</thead>
 	<thead>
-		<th>Categorias Existentes</th>
-		<th>
-
-		</th>
+		<th>Nombre</th>
+		<th></th>
 		<th></th>
 
 	</thead>
 	@foreach($categories as $category)
-	<thead>
+
+	<thead> 
 		<td>{{$category->name}}</td>
 		<td>
 		{!!Link_to_route('category.edit', $title = 'Editar', $parameters = $category->id, $attributes=['class'=>'btn btn-success'])!!}
@@ -51,6 +44,8 @@
 	</thead>
 	@endforeach
 </table>
+
+
 {!! $categories->render() !!}
 
 @stop

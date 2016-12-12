@@ -11,4 +11,9 @@ class Language extends Model
     protected $fillable = [
    'name', 
    ];
+   
+    public function scopeSearch($query, $name)
+   {
+   	return $query->where('name', 'LIKE', "%$name%");
+   }
 }
