@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStoreStaffsTable extends Migration
+class CreateStoreStaffTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,16 @@ class CreateStoreStaffsTable extends Migration
      */
     public function up()
     {
-        Schema::create('store_staffs', function (Blueprint $table) {
+        Schema::create('store_staff', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('manager_staff_id')->unsigned();
-            
 
-             $table->foreign('manager_staff_id')->references('id')->on('staff');
-            
+            $table->integer('store_id')->unsigned();
+            $table->integer('manager_staff_id')->unsigned();
+
+            $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
+            $table->foreign('manager_staff_id')->references('id')->on('staff')->onDelete('cascade');
+
+
             $table->timestamps();
         });
     }
@@ -31,6 +34,6 @@ class CreateStoreStaffsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('store_staffs');
+        Schema::dropIfExists('store_staff');
     }
 }

@@ -14,4 +14,9 @@ class FilmText extends Model
    'description',
    
    ];
+
+   public function film()
+   {
+   	 return $this->belongsTo('App\Film');
+   }
 }

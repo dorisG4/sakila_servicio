@@ -20,13 +20,21 @@ Route::get('reviews','FrontController@reviews');
 Route::get('admin','FrontController@admin');
 
 
+	Route::resource('category','CategoryController');
+	Route::resource('actor','ActorController');
+	Route::resource('language','LanguageController');
+	Route::resource('film','FilmController');
 
-Route::resource('category','CategoryController');
-Route::resource('actor','ActorController');
-Route::resource('language','LanguageController');
-Route::resource('film','FilmController');
+	Route::resource('staff','StaffController');
+	
 
-Route::resource('staff','StaffController');
+
+// Route::group(['prefix'=>'articles'], function(){
+// 	Route::get('view/{id}',
+// 			[
+// 			'uses' => 'PruebaController@view',	
+// 			'as' =>'articlesView']);
+// });
 
 
 

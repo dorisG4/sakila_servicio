@@ -19,7 +19,7 @@ class CreateFilmTextsTable extends Migration
             $table->string('title');
             $table->string('description');
 
-            $table->foreign('film_id')->references('id')->on('films');
+            $table->foreign('film_id')->references('id')->on('films')->onDelete('cascade');
 
             $table->timestamps();
         });

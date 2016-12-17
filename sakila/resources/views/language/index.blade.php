@@ -3,7 +3,7 @@
 @section('content')
 <h2>Idiomas</h2>
 
-<!--Buscador de Categoria -->
+<!--Buscador de Idioma-->
 		{!! Form::open(['route' => 'language.index', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search'])!!}
 		    <div class="form-group">
 		     {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Idioma...']) !!}    

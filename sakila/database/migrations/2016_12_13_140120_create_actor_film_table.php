@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFilmActorsTable extends Migration
+class CreateActorFilmTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateFilmActorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('film_actors', function (Blueprint $table) {
+        Schema::create('actor_film', function (Blueprint $table) {
             $table->increments('id');
+
             $table->integer('actor_id')->unsigned();
             $table->integer('film_id')->unsigned();
 
-            $table->foreign('actor_id')->references('id')->on('actors');
-            $table->foreign('film_id')->references('id')->on('films');
-
+            $table->foreign('actor_id')->references('id')->on('actors')->onDelete('cascade');
+            $table->foreign('film_id')->references('id')->on('films')->onDelete('cascade');
 
             $table->timestamps();
         });
@@ -33,6 +33,6 @@ class CreateFilmActorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('film_actors');
+        Schema::dropIfExists('actor_film');
     }
 }

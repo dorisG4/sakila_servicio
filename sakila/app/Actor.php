@@ -17,4 +17,9 @@ class Actor extends Model
    {
    	return $query->where('first_name', 'LIKE', "%$name%");
    }
+
+    public function films()
+   {
+     return $this->belongsToMany('App\Film')->withTimestamps();
+   }
 }

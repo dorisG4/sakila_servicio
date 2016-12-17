@@ -22,8 +22,8 @@ class CreateCustomersTable extends Migration
             $table->integer('address_id')->unsigned();
             $table->string('active');
 
-             $table->foreign('store_id')->references('id')->on('stores');
-              $table->foreign('address_id')->references('id')->on('addresses');
+             $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
+              $table->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade');
 
             $table->timestamps();
         });

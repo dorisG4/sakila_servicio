@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.registroEmpleados')
 @section('content')
 
 <h2>Empleado</h2>

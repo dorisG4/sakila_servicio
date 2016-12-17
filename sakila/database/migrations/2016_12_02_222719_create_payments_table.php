@@ -21,9 +21,9 @@ class CreatePaymentsTable extends Migration
             $table->string('amount');
             $table->string('payment_date');
 
-            $table->foreign('customer_id')->references('id')->on('customers');
-            $table->foreign('staff_id')->references('id')->on('staff');
-            $table->foreign('rental_id')->references('id')->on('rentals');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            $table->foreign('staff_id')->references('id')->on('staff')->onDelete('cascade');
+            $table->foreign('rental_id')->references('id')->on('rentals')->onDelete('cascade');
 
 
             $table->timestamps();

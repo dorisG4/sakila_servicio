@@ -16,8 +16,8 @@ class CreateStoresTable extends Migration
         Schema::create('stores', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('address_id')->unsigned();
-
-            $table->foreign('address_id')->references('id')->on('addresses');
+            
+            $table->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade');
             
             $table->timestamps();
         });

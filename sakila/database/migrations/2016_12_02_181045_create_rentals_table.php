@@ -21,9 +21,9 @@ class CreateRentalsTable extends Migration
             $table->string('return_date');
             $table->integer('staff_id')->unsigned();
 
-            $table->foreign('inventory_id')->references('id')->on('inventories');
-            $table->foreign('customer_id')->references('id')->on('customers');
-            $table->foreign('staff_id')->references('id')->on('staff');
+            $table->foreign('inventory_id')->references('id')->on('inventories')->onDelete('cascade');;
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            $table->foreign('staff_id')->references('id')->on('staff')->onDelete('cascade');
 
             $table->timestamps();
         });

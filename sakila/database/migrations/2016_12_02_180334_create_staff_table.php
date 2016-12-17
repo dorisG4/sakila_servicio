@@ -25,8 +25,8 @@ class CreateStaffTable extends Migration
             $table->string('username');
             $table->string('password');
 
-            $table->foreign('address_id')->references('id')->on('addresses');
-             $table->foreign('store_id')->references('id')->on('stores');
+            $table->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade');
+            $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
           
 
 

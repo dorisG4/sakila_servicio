@@ -22,4 +22,37 @@ class Film extends Model
    'special_features',
    
    ];
+
+    public function language()
+   {
+     return $this->belongsTo('App\Language');
+   }
+
+     public function originalLanguage()
+   {
+     return $this->belongsTo('App\Language');
+   }
+
+    public function filmText()
+   {
+     return $this->hasMany('App\FilmText');
+   }
+
+    
+    public function categories()
+   {
+     return $this->belongsToMany('App\Category');
+   }
+
+
+    public function actors()
+   {
+     return $this->belongsToMany('App\Actor');
+   }
+
+   public function scopeSearch($query, $title)
+   {
+    return $query->where('title', 'LIKE', "%$title%");
+   }
+
 }

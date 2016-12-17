@@ -27,8 +27,8 @@ class CreateFilmsTable extends Migration
             $table->string('rating');
             $table->string('special_features');
 
-               $table->foreign('language_id')->references('id')->on('languages');
-               $table->foreign('original_language_id')->references('id')->on('languages');
+            $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
+            $table->foreign('original_language_id')->references('id')->on('languages')->onDelete('cascade');
 
             $table->timestamps();
         });

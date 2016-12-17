@@ -12,6 +12,8 @@
     {!!Html::style('css/metisMenu.min.css')!!}
     {!!Html::style('css/sb-admin-2.css')!!}
     {!!Html::style('css/font-awesome.min.css')!!}
+    {!!Html::style('plugins/chosen/chosen.css')!!}
+   
 
 </head>
 
@@ -82,16 +84,16 @@
                             <a href="#"><i class="fa fa-film fa-fw"></i>Registro Peliculas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="category"><i class='fa fa-plus fa-fw'></i>Categorias</a>
+                                    <a href="/category"><i class='fa fa-plus fa-fw'></i>Categorias</a>
                                 </li>
                                  <li>
-                                    <a href="actor"><i class='fa fa-plus fa-fw'></i>Actores</a>
+                                    <a href="/actor"><i class='fa fa-plus fa-fw'></i>Actores</a>
                                 </li>
                                  <li>
-                                    <a href="language"><i class='fa fa-plus fa-fw'></i>Idiomas</a>
+                                    <a href="/language"><i class='fa fa-plus fa-fw'></i>Idiomas</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class='fa fa-list-ol fa-fw'></i> Peliculas</a>
+                                    <a href="/film"><i class='fa fa-list-ol fa-fw'></i> Peliculas</a>
                                 </li>
                             </ul>
                         </li>
@@ -167,7 +169,10 @@
     {!!Html::script('js/bootstrap.min.js')!!}
     {!!Html::script('js/metisMenu.min.js')!!}
     {!!Html::script('js/sb-admin-2.js')!!}
-  
+    {!!Html::script('plugins/chosen/chosen.jquery.js')!!}
+    
+
+    @yield('js')
 
 </body>
 

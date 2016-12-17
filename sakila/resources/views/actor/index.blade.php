@@ -3,7 +3,7 @@
 @section('content')
 <h2>Actores</h2>
 
-<!--Buscador de Categoria -->
+<!--Buscador de Actor -->
 		{!! Form::open(['route' => 'actor.index', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search'])!!}
 		    <div class="form-group">
 		     {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Actor...']) !!}
