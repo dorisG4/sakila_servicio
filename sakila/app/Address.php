@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Address extends Model
 {
-     protected $table = 'addresses';
+      protected $table = 'addresses';
     
     protected $fillable = [
    'address',
@@ -17,4 +17,24 @@ class Address extends Model
    'phone',
     
    ];
+
+    public function city()
+   {
+   	 return $this->belongsTo('App\City');
+   }
+
+    public function stores()
+   {
+     return $this->hasMany('App\Stores');
+   }
+
+    public function staff()
+   {
+     return $this->hasMany('App\Staff');
+   }
+
+    public function customer()
+   {
+     return $this->hasMany('App\Customer');
+   }
 }

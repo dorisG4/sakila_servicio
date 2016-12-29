@@ -2712,6 +2712,6 @@ a.b-home:hover {
   background-color: #FC9804;
 }
 
-.banner h2, h3, h4 {
+.banner h2, .banner h3, .banner h4 {
   color: #FFFFFF;
 }

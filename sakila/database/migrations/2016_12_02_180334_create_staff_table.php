@@ -19,17 +19,17 @@ class CreateStaffTable extends Migration
             $table->string('last_name');
             $table->integer('address_id')->unsigned();
             $table->string('picture');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->integer('store_id')->unsigned();
             $table->string('active');
-            $table->string('username');
+            $table->string('username')->unique();
             $table->string('password');
 
             $table->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade');
             $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
           
 
-
+            $table->rememberToken();
             $table->timestamps();
         });
     }

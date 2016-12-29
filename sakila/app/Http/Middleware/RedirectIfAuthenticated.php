@@ -4,9 +4,16 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Auth\Guard;
 
 class RedirectIfAuthenticated
 {
+    public function __construct(Guard $auth)
+    {
+        $this->auth = $auth;
+    }
+
+
     /**
      * Handle an incoming request.
      *

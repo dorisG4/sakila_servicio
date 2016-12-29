@@ -15,6 +15,7 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->increments('id');
+
             $table->string('address');
             $table->string('address2');
             $table->string('district');
@@ -23,6 +24,7 @@ class CreateAddressesTable extends Migration
             $table->string('phone');
 
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

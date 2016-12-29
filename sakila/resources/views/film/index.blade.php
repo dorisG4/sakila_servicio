@@ -38,9 +38,9 @@
 			<td>{{$film->rating}}</td>			
 
 			<td>
-				<a href="{{route('film.edit',$film->id)}}" class="btn btn-success"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
+				<a href="{{route('film.edit',$film->id) }}" class="btn btn-success" title="Actualizar"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
 
-				<a href="#" onclick="return confirm('¿Seguro que desea eliminarlo?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
+				<a href="{{route('film.destroy',$film->id)}}" onclick="return confirm('¿Seguro que desea eliminarlo?')" class="btn btn-danger" title="Eliminar" ><span class="glyphicon glyphicon-remove"></span></a>
 			</td>
 			
 		</tr>

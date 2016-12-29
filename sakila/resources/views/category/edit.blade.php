@@ -5,6 +5,7 @@
 <br>
 
 {!!Form::model($category,['route'=>['category.update', $category->id], 'method'=>'PUT'])!!}
+	
 	@include('forms.categoryForm')
 
 	<div class="form-group col-md-2">

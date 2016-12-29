@@ -33,7 +33,7 @@
 	<thead> 
 		<td>{{$category->name}}</td>
 		<td>
-		{!!Link_to_route('category.edit', $title = 'Editar', $parameters = $category->id, $attributes=['class'=>'btn btn-success'])!!}
+		{!!Link_to_route('category.edit', $title = 'Actualizar', $parameters = $category->id, $attributes=['class'=>'btn btn-success'])!!}
 		</td>
 		<td>
 		{!!Form::open(['route'=>['category.destroy', $category->id], 'method'=>'DELETE'])!!}

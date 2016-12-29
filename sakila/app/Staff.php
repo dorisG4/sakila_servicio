@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Staff extends Model
 {
      protected $table= 'staff';
@@ -21,9 +22,24 @@ class Staff extends Model
    
    ];
 
-   public function setPasswordAtribute($valor){
-   	if(!empty($valor)){
-   		$this->attributes['password'] = \Hash::make($valor);
-   	}
+   protected $hidden = [
+        'password', 'remember_token',
+    ];
+  
+  
+    // public function setPasswordAtribute($value){         
+    //           $this->attributes['password'] = bcrypt($value);
+    // }
+
+
+    public function address()
+   {
+   	 return $this->belongsTo('App\Address');
    }
+
+    public function store()
+   {
+   	 return $this->belongsTo('App\Store');
+   }
+
 }

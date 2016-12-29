@@ -14,4 +14,25 @@ class Store extends Model
    
    ];
 
+      public function address()
+   {
+   	 return $this->belongsTo('App\Address');
+   }
+
+    public function staff()
+   {
+     return $this->hasMany('App\Staff');
+   }
+
+     public function customer()
+   {
+     return $this->hasMany('App\Customer');
+   }
+
+     public function inventory()
+   {
+     return $this->hasMany('App\Inventory');
+   }
+
+  
 }

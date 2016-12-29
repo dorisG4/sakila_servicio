@@ -15,10 +15,10 @@ class CreateInventoriesTable extends Migration
     {
         Schema::create('inventories', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('film_id')->unsigned();
+            $table->integer('film_text_id')->unsigned();
             $table->integer('store_id')->unsigned();
 
-            $table->foreign('film_id')->references('id')->on('films')->onDelete('cascade');
+            $table->foreign('film_text_id')->references('id')->on('film_texts')->onDelete('cascade');
             $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
 
             $table->timestamps();

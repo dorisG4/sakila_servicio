@@ -64,11 +64,17 @@ return [
     |
     */
 
-    'providers' => [
+     'providers' => [
         'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
+            'driver' => 'database',
+            'table' => 'staff',
         ],
+
+        // 'providers' => [
+        //     'users' => [
+        //         'driver' => 'eloquent',
+        //         'model' => App\User::class,
+        //     ],
 
         // 'users' => [
         //     'driver' => 'database',

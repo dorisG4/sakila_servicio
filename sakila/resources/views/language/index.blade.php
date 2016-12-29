@@ -32,7 +32,7 @@
 	<thead> 
 		<td>{{$language->name}}</td>
 		<td>
-		{!!Link_to_route('language.edit', $title = 'Editar', $parameters = $language->id, $attributes=['class'=>'btn btn-success'])!!}
+		{!!Link_to_route('language.edit', $title = 'Actualizar', $parameters = $language->id, $attributes=['class'=>'btn btn-success'])!!}
 		</td>
 		<td>
 		{!!Form::open(['route'=>['language.destroy', $language->id], 'method'=>'DELETE'])!!}

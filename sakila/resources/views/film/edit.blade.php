@@ -2,17 +2,7 @@
 
 @section('content')
 
-             @if(count($errors)>0)
-                <div class="alert alert-danger alert-dismissible" role="alert">
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                   @foreach($errors->all() as $error)
-                   <li>{!!$error!!}</li>
-                   @endforeach
-                </div>
-              @endif
-          
-
-<h2>Editar Pelicula</h2>
+<h2>Actualizar Pelicula</h2>
 
 {!!Form::model($film,['route'=>['film.update', $film->id], 'method'=>'PUT'])!!}
 	
@@ -25,13 +15,13 @@
 		{!!Form::textarea('description', null,['class'=>'form-control', 'rows'=>'3'])!!}
 		
 		{!!Form::label('release_year','Año de lanzamiento:')!!}		
-		{!!Form::selectRange('release_year',1980,2050, null,['class'=>'form-control select-options','placeholder'=>'Selecciona un año','required'])!!}
+		{!!Form::selectRange('release_year',1980,2050, null,['class'=>'form-control select-options','placeholder'=>'Selecciona un año'])!!}
 		
 		{!! Form::label('language_id','Idioma:')!!}
-		{!! Form::select('language_id',$languages, null, ['class'=>'form-control select-options','placeholder'=>'Selecciona un idioma', 'required']) !!}
+		{!! Form::select('language_id',$languages, null, ['class'=>'form-control select-options','placeholder'=>'Selecciona un idioma']) !!}
 
 		{!! Form::label('original_language_id','Idioma original:')!!}
-		{!! Form::select('original_language_id',$languages, null, ['class'=>'form-control select-options','placeholder'=>'Selecciona un idioma', 'required']) !!}
+		{!! Form::select('original_language_id',$languages, null, ['class'=>'form-control select-options','placeholder'=>'Selecciona un idioma']) !!}
 
 		{!!Form::label('rental_duration','Duración del alquiler:')!!}
 		{!!Form::text('rental_duration', null,['class'=>'form-control'])!!}			
@@ -55,20 +45,25 @@
 		{!!Form::select ('special_features',['Trailers'=>'Trailers','Comentarios'=>'Comentarios','Escenas eliminadas'=>'Escenas eliminadas','Detrás de escenas'=>'Detrás de escenas'], null,['class'=>'form-control select-options','placeholder'=>'Selecciona una característica'])!!}
 
 		{!! Form::label('actor_id','Actor:')!!}
-		{!! Form::select('actor_id[]',$actors, $my_actors, ['class'=>'form-control select-actor','multiple','required']) !!}
+		{!! Form::select('actor_id[]',$actors, $my_actors, ['class'=>'form-control select-actor','multiple']) !!}
 	</div>
 	
 	<div class="form-group col-md-4">	
 
 	 	{!! Form::label('category_id','Categoria:')!!}
-		{!! Form::select('category_id[]',$categories, $my_categories, ['class'=>'form-control select-category','multiple','required']) !!}
+		{!! Form::select('category_id[]',$categories, $my_categories, ['class'=>'form-control select-category','multiple']) !!}
+
+
+		{!! Form::label('store_id','Sucursal:')!!}
+		{!! Form::select('store_id',$stores, null, ['class'=>'form-control select-options','placeholder'=>'Selecciona una sucursal']) !!}
+
 
 		<h3>Texto de la Pelicula</h3><hr>
-		{!!Form::label('title2','Titulo:')!!}
-		{!!Form::text('title2', $filmText->title,['class'=>'form-control','required'])!!}
+		{!!Form::label('title2','Titulo 2:')!!}
+		{!!Form::text('title2', $filmText->title,['class'=>'form-control'])!!}
 
-		{!!Form::label('description2','Descripcion:')!!}
-		{!!Form::textarea('description2', $filmText->description,['class'=>'form-control', 'rows'=>'3','required'])!!}
+		{!!Form::label('description2','Descripcion 2:')!!}
+		{!!Form::textarea('description2', $filmText->description,['class'=>'form-control', 'rows'=>'3'])!!}
 	</div>
 
 </div>

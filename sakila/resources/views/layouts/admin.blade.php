@@ -37,16 +37,14 @@
             <ul class="nav navbar-top-links navbar-right">
                  <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    {!!Auth::user()->username!!}
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
+                        {{-- <li><a href="#"><i class="fa fa-gear fa-fw"></i>Ajustes</a></li>
+                        <li class="divider"></li> --}}
+                        <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -59,7 +57,7 @@
                             <a href="#"><i class="fa fa-users fa-fw"></i>Clientes<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#"><i class='fa fa-list-ol fa-fw'></i> Agregar </a>
+                                    <a href="/admin/customers"><i class='fa fa-list-ol fa-fw'></i> Agregar </a>
                                 </li>
                                   
                             </ul>
@@ -84,16 +82,16 @@
                             <a href="#"><i class="fa fa-film fa-fw"></i>Registro Peliculas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/category"><i class='fa fa-plus fa-fw'></i>Categorias</a>
+                                    <a href="/admin/category"><i class='fa fa-plus fa-fw'></i>Categorias</a>
                                 </li>
                                  <li>
-                                    <a href="/actor"><i class='fa fa-plus fa-fw'></i>Actores</a>
+                                    <a href="/admin/actor"><i class='fa fa-plus fa-fw'></i>Actores</a>
                                 </li>
                                  <li>
-                                    <a href="/language"><i class='fa fa-plus fa-fw'></i>Idiomas</a>
+                                    <a href="/admin/language"><i class='fa fa-plus fa-fw'></i>Idiomas</a>
                                 </li>
                                 <li>
-                                    <a href="/film"><i class='fa fa-list-ol fa-fw'></i> Peliculas</a>
+                                    <a href="/admin/film"><i class='fa fa-list-ol fa-fw'></i> Peliculas</a>
                                 </li>
                             </ul>
                         </li>
@@ -104,21 +102,22 @@
                             <a href="#"><i class="fa fa-child fa-fw"></i> Empleados<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#"><i class='fa fa-list-ol fa-fwfw'></i> Agregar</a>
+                                    <a href="/admin/staff"><i class='fa fa-list-ol fa-fwfw'></i> Agregar</a>
                                 </li>
                                
                             </ul>
                         </li>
 
                         <li>
-                            <a href="#"><i ></i> Sucursal<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-child fa-fw"></i>Sucursales<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="/admin/stores"><i class='fa fa-plus fa-fw'></i>Sucursal</a>
                                 </li>
-                                <li>
-                                    <a href="#"><i class='fa fa-list-ol fa-fw'></i> Sucursales</a>
+                                 <li>
+                                    <a href="#"><i class='fa fa-plus fa-fw'></i>Encargados</a>
                                 </li>
+                               
                             </ul>
                         </li>
 
@@ -148,16 +147,28 @@
      </nav>
         <div id="page-wrapper">
         <br>
-            <div>      
-              @if(Session::has('message'))
-                <div class="alert alert-success alert-dismissible" role="alert">
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                   {{Session::get('message')}}
-                </div>
-              @endif
 
-            </div>
+            <!-- Mensaje CRUD-->
+             <div>                
+                  @if(Session::has('message'))
+                    <div class="alert alert-success alert-dismissible" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                       {{Session::get('message')}}
+                    </div>
+                  @endif
+
+             </div>
             
+            <!-- Errores -->
+            @if(count($errors)>0)
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                   @foreach($errors->all() as $error)
+                   <li>{!!$error!!}</li>
+                   @endforeach
+                </div>
+            @endif
+
         @yield('content')
             
         </div>

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -12,5 +13,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
+        
+        $this->call('CountryTableSeeder');
+        $this->call('StoreTableSeeder');
+        $this->call('StaffTableSeeder');
     }
 }

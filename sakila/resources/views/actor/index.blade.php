@@ -35,7 +35,7 @@
 		<td>{{$actor->first_name}}</td>
 		<td>{{$actor->last_name}}</td>
 		<td>
-		{!!Link_to_route('actor.edit', $title = 'Editar', $parameters = $actor->id, $attributes=['class'=>'btn btn-success'])!!}
+		{!!Link_to_route('actor.edit', $title = 'Actualizar', $parameters = $actor->id, $attributes=['class'=>'btn btn-success'])!!}
 		</td>
 		<td>
 		{!!Form::open(['route'=>['actor.destroy', $actor->id], 'method'=>'DELETE'])!!}

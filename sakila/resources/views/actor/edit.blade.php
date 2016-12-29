@@ -5,6 +5,7 @@
 <br>
 
 {!!Form::model($actor,['route'=>['actor.update', $actor->id], 'method'=>'PUT'])!!}
+	
 	@include('forms.actorForm')
 
 	<div class="form-group col-md-2">

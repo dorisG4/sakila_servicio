@@ -15,7 +15,15 @@ class Customer extends Model
 	   'email',
 	   'address_id',
 	   'active',
-	   
-   
-   ];
+     ];
+
+       public function address()
+	   {
+	   	 return $this->belongsTo('App\Address');
+	   }
+
+	   public function store()
+	   {
+	   	 return $this->belongsTo('App\Store');
+	   }
 }

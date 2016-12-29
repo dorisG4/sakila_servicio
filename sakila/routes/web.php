@@ -14,19 +14,57 @@
 //     return view('welcome');
 // });
 
+
 Route::get('/','FrontController@index');
-Route::get('contacto','FrontController@Contacto');
-Route::get('reviews','FrontController@reviews');
 Route::get('admin','FrontController@admin');
+// Route::get('contacto','FrontController@Contacto');
+// Route::get('reviews','FrontController@reviews');
 
 
+
+Route::group(['prefix'=>'admin', 'middleware' => 'auth'], function(){
+
+	//Route::get('admin','FrontController@admin');
+	
 	Route::resource('category','CategoryController');
 	Route::resource('actor','ActorController');
 	Route::resource('language','LanguageController');
 	Route::resource('film','FilmController');
-
+	Route::resource('stores','StoreController');
 	Route::resource('staff','StaffController');
+	Route::resource('customers','CustomerController');
+	//Route::resource('log','LogController');
 	
+				Route::get('film/{id}/destroy',[
+			    'uses' =>'FilmController@destroy',
+				'as' => 'film.destroy'
+			    ]);
+
+			    Route::get('stores/{id}/destroy',[
+			    'uses' =>'StoreController@destroy',
+				'as' => 'stores.destroy'
+			    ]);
+
+			    Route::get('customers/{id}/destroy',[
+			    'uses' =>'CustomerController@destroy',
+				'as' => 'customers.destroy'
+			    ]);
+
+			     Route::get('staff/{id}/destroy',[
+			    'uses' =>'StaffController@destroy',
+				'as' => 'staff.destroy'
+			    ]);
+
+
+});
+
+
+
+//Route::get('admin','LogController@index');
+//Route::resource('admin','LogController');
+Route::resource('log', 'LogController');
+Route::get('logout','LogController@logout');
+// Route::get('/','LogController@index');
 
 
 // Route::group(['prefix'=>'articles'], function(){
@@ -36,6 +74,6 @@ Route::get('admin','FrontController@admin');
 // 			'as' =>'articlesView']);
 // });
 
-
+Auth::routes();
 
 
