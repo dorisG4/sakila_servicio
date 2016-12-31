@@ -23,4 +23,6 @@ class FilmText extends Model
    {
      return $this->hasMany('App\Inventory');
    }
+
+   
 }

@@ -11,6 +11,8 @@ use App\Actor;
 use App\Film;
 use App\FilmText;
 use App\Store;
+use App\Inventory;
+
 
 use Illuminate\Support\Facades\Input;
 use Session;
@@ -29,13 +31,15 @@ class FilmController extends Controller
      */
     public function index(Request $request)
     {
-        $films=Film::search($request->title)->orderBy('id','DESC')->paginate(3);
+        $films=Film::search($request->title)->orderBy('id','DESC')->paginate(8);
+
         // $films=Film::orderBy('id','DES')->paginate(5);
         // return view('film.index', compact('films')); 
    
             $films->each(function($films){
             $films->language;
             $films->categories;
+            // $films->filmText;
             });
             //dd($films);
             return view('film.index')->with('films',$films);
@@ -87,11 +91,16 @@ class FilmController extends Controller
        $film_text->film()->associate($film);
        $film_text->save();
 
-       
 
-      
+       $store_id= Input::get('store_id'); 
+       $inventory = new Inventory();
+       $inventory->filmText()->associate($film_text);
+       $inventory->store_id=$store_id;
+       $inventory->save();
+
+       //dd($inventory);
        Session::flash('message','Pelicula creada correctamente');
-       return Redirect::to('/film');
+       return Redirect::to('admin/film');
 
 
     }
@@ -118,23 +127,28 @@ class FilmController extends Controller
 
         $film = Film::find($id);
         $filmText = FilmText::find($id);
+        $inventory = Inventory::find($id);
         //$filmText->title;
         //dd( $filmText->description);
          
         $categories = Category::orderBy('name','ASC')->pluck('name','id');
         $actors = Actor::orderBy('first_name','ASC')->pluck('first_name','id');
         $languages = Language::orderBy('name','ASC')->pluck('name','id');
+        $stores = Store::orderBy('id')->pluck('id','id');
+
 
         $my_actors = $film->actors->pluck('id')->ToArray();
         $my_categories = $film->categories->pluck('id')->ToArray();
 
         //dd($my_categories);
        
-        return view('film.edit',['film'=>$film])  
+        return view('film.edit',['film'=>$film])
+               ->with('stores', $stores)  
                ->with('categories', $categories)          
                ->with('actors', $actors)
                ->with('languages', $languages)
                ->with('filmText',$filmText)
+               ->with('inventory',$inventory)
                ->with('my_actors',$my_actors)
                ->with('my_categories',$my_categories);
 
@@ -159,16 +173,19 @@ class FilmController extends Controller
         $title= Input::get('title2');
         $description=Input::get('description2');
 
-        $film_text = FilmText::find($id);     
+        $film_text = FilmText::find($id);  
         $film_text->title=$title;
-        $film_text->description=$description;
-        $film->fill($request->all());
-        //$film_text->film()->associate($film);
+        $film_text->description=$description;    
         $film_text->save();
-      
+
+        $inventory = Inventory::find($id);
+        $inventory->fill($request->all());
+        $inventory->save();
+
+            //dd($inventory);
 
         Session::flash('message','Pelicula actualizada correctamente');
-        return Redirect::to('/film');
+        return Redirect::to('admin/film');
 
     }
 
@@ -185,6 +202,6 @@ class FilmController extends Controller
          $film->delete();
          
          Session::flash('message','Pelicula eliminada correctamente');
-         return Redirect::to('/film');
+         return Redirect::to('admin/film');
     }
 }

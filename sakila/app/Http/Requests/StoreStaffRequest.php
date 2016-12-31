@@ -27,7 +27,7 @@ class StoreStaffRequest extends FormRequest
             
        'first_name' => 'required',
        'last_name' => 'required',
-       // 'picture' => 'required',
+       'picture' => 'required',
        'email' => 'required|unique:staff',
        'store_id' => 'required',
        'active' => 'required',

@@ -67,7 +67,7 @@ class StoreController extends Controller
 
 
        Session::flash('message','Sucursal creada correctamente');
-       return Redirect::to('/stores');
+       return Redirect::to('admin/stores');
 
     }
 
@@ -136,7 +136,7 @@ class StoreController extends Controller
             
             
         Session::flash('message','Sucursal actualizada correctamente');   
-        return Redirect::to('/stores');
+        return Redirect::to('admin/stores');
 
     }
 
@@ -162,6 +162,6 @@ class StoreController extends Controller
         $city->delete();
 
          Session::flash('message','Sucursal eliminada correctamente');
-         return Redirect::to('/stores');
+         return Redirect::to('admin/stores');
     }
 }

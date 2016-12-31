@@ -14,12 +14,14 @@ class ActorTableSeeder extends Seeder
         $faker = Faker\Factory::create();
        
 
-       for($i = 0; $i < 20; $i++)
+       for($i = 0; $i < 30; $i++)
        {
       
        \DB::table('actors')->insert(array(
-       	    'first_name'=>$faker->unique()->firstNameFemale,
-       	    'last_name'=>$faker->unique()->lastName
+       	    'first_name'=>$faker->unique()->firstNameMale,
+       	    'last_name'=>$faker->unique()->lastName,
+       	    'created_at' => date('Y-m-d H:m:s'),
+            'updated_at' => date('Y-m-d H:m:s')	
 
        	    ));
        }

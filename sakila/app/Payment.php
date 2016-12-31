@@ -16,4 +16,9 @@ class Payment extends Model
 	   'payment_date',
    
    ];
+
+     public function rental()
+   {
+   	 return $this->belongsTo('App\Rental');
+   }
 }

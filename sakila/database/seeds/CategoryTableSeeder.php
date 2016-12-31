@@ -14,12 +14,13 @@ class CategoryTableSeeder extends Seeder
          $faker = Faker\Factory::create();
        
 
-		       for($i = 0; $i < 30; $i++)
+		       for($i = 0; $i < 17; $i++)
 		       {
 		      
 		       \DB::table('categories')->insert(array(
-		       	    'name'=>$faker->randomElement(['Cómicas','Comedias','Western', 'Musical', 'Terror', 'Ciencia ficción', 'Melodrama', 'Históricas', 'Aventuras', 'Documental', 'Acción', 'Guerra', 'Misterio', 'infantiles', 'fatasticas', 'musicales'])		       	 
-
+		       	    'name'=>$faker->unique()->randomElement(['Comedia', 'Musical', 'Terror', 'Ciencia ficción', 'Melodrama', 'Histórica', 'Aventura', 'Documental', 'Acción', 'Guerra', 'Misterio', 'Infantil', 'Fantasia', 'Musical', 'Suspenso','Drama','Basada en hechos reales', 'Artes marciales']),	
+		       	    'created_at' => date('Y-m-d H:m:s'),
+                    'updated_at' => date('Y-m-d H:m:s')	       	
 		       	    ));
 		       }
 

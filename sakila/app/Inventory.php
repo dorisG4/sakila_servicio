@@ -14,13 +14,24 @@ class Inventory extends Model
    
    ];
 
-     public function filmTexts()
+     public function filmText()
    {
    	 return $this->belongsTo('App\FilmText');
    }
 
-     public function stores()
+     public function store()
    {
    	 return $this->belongsTo('App\Store');
+   }
+
+     public function scopeSearch($query, $id)
+   {
+    //return $query->where('title', 'LIKE', "%$name%");
+        return $query->where('id','id');
+   }
+
+     public function rental()
+   {
+     return $this->hasMany('App\Rental');
    }
 }

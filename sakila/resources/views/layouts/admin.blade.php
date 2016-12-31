@@ -68,10 +68,10 @@
                             <a href="#"><i class="fa fa-film fa-fw"></i>Renta de Peliculas<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#"><i class='fa fa-plus fa-fw'></i> Renta </a>
+                                    <a href="/admin/rental"><i class='fa fa-plus fa-fw'></i> Renta </a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class='fa fa-plus fa-fw'></i> Pago</a>
+                                    <a href="/admin/payment"><i class='fa fa-plus fa-fw'></i> Lista de Pagos</a>
                                 </li>
                                 </ul>
                         </li>
@@ -115,7 +115,7 @@
                                     <a href="/admin/stores"><i class='fa fa-plus fa-fw'></i>Sucursal</a>
                                 </li>
                                  <li>
-                                    <a href="#"><i class='fa fa-plus fa-fw'></i>Encargados</a>
+                                    <a href="/admin/manager"><i class='fa fa-plus fa-fw'></i>Encargados</a>
                                 </li>
                                
                             </ul>
@@ -125,16 +125,16 @@
                             <a href="#"><i ></i> Inventario<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="/admin/inventory"><i class='fa fa-plus fa-fw'></i>Inventario Peliculas</a>
                                 </li>
                             </ul>
                         </li>
 
                          <li>
-                            <a href="#"><i ></i> Direcciones<span class="fa arrow"></span></a>
+                            <a href="#"><i ></i> Reportes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="#"><i class='fa fa-plus fa-fw'></i>Ventas</a>
                                 </li>
                             </ul>
                         </li>

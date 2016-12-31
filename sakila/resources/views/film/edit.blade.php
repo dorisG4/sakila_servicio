@@ -55,7 +55,7 @@
 
 
 		{!! Form::label('store_id','Sucursal:')!!}
-		{!! Form::select('store_id',$stores, null, ['class'=>'form-control select-options','placeholder'=>'Selecciona una sucursal']) !!}
+		{!! Form::select('store_id',$stores, $inventory->store_id, ['class'=>'form-control select-options','placeholder'=>'Selecciona una sucursal']) !!}
 
 
 		<h3>Texto de la Pelicula</h3><hr>

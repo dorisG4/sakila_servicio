@@ -22,6 +22,7 @@ Route::get('admin','FrontController@admin');
 
 
 
+
 Route::group(['prefix'=>'admin', 'middleware' => 'auth'], function(){
 
 	//Route::get('admin','FrontController@admin');
@@ -33,6 +34,9 @@ Route::group(['prefix'=>'admin', 'middleware' => 'auth'], function(){
 	Route::resource('stores','StoreController');
 	Route::resource('staff','StaffController');
 	Route::resource('customers','CustomerController');
+	Route::resource('inventory','InvetoryController');
+	Route::resource('rental','RentalController');
+
 	//Route::resource('log','LogController');
 	
 				Route::get('film/{id}/destroy',[
@@ -50,9 +54,14 @@ Route::group(['prefix'=>'admin', 'middleware' => 'auth'], function(){
 				'as' => 'customers.destroy'
 			    ]);
 
-			     Route::get('staff/{id}/destroy',[
+			    Route::get('staff/{id}/destroy',[
 			    'uses' =>'StaffController@destroy',
 				'as' => 'staff.destroy'
+			    ]);
+
+			    Route::get('rental/{id}/destroy',[
+			    'uses' =>'RentalController@destroy',
+				'as' => 'rental.destroy'
 			    ]);
 
 

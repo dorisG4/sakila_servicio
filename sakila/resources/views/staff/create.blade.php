@@ -61,14 +61,14 @@
 
 		<br><br>
 
- <div class="form-group col-md-6">			
+	 <div class="form-group col-md-6">			
 
- {!!Form::submit('Agregar',['class'=>'btn btn-primary'])!!} </div>
+	 {!!Form::submit('Agregar',['class'=>'btn btn-primary'])!!} </div>
 
 
- <div class="form-group col-md-6">
-			<a href="{{ route('staff.index')}}" class="btn btn-warning">Cancelar</a>
-			</div>
+	 <div class="form-group col-md-6">
+				<a href="{{ route('staff.index')}}" class="btn btn-warning">Cancelar</a>
+				</div>
 
 </div>
 

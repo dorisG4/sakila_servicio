@@ -23,6 +23,7 @@
 		<th>Doblaje</th>
 		<th>Idioma Original</th>
 		<th>Clasificación</th>
+		{{-- <th>Sucursal</th> --}}
 		
 		<th>Acción<th>
 	</thead>
@@ -35,7 +36,8 @@
 			<td>{{$film->release_year}}</td>
 			<td>{{$film->language->name}}</td>
 			<td>{{$film->originalLanguage->name}}</td>
-			<td>{{$film->rating}}</td>			
+			<td>{{$film->rating}}</td>
+			{{-- <td>{{$film->filmText}}</td> --}}				
 
 			<td>
 				<a href="{{route('film.edit',$film->id) }}" class="btn btn-success" title="Actualizar"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>

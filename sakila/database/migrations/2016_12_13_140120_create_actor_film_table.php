@@ -16,8 +16,9 @@ class CreateActorFilmTable extends Migration
         Schema::create('actor_film', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('actor_id')->unsigned();
             $table->integer('film_id')->unsigned();
+            $table->integer('actor_id')->unsigned();
+            
 
             $table->foreign('actor_id')->references('id')->on('actors')->onDelete('cascade');
             $table->foreign('film_id')->references('id')->on('films')->onDelete('cascade');

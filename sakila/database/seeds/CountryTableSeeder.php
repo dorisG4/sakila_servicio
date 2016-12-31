@@ -20,7 +20,10 @@ class CountryTableSeeder extends Seeder
        {
       
        \DB::table('countries')->insert(array(
-       	'country'=>$faker->unique()->country
+       	'country'=>$faker->unique()->country,
+        'created_at' => date('Y-m-d H:m:s'),
+        'updated_at' => date('Y-m-d H:m:s') 
+        
        	));
        }
      
