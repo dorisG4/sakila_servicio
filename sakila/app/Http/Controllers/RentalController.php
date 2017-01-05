@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreRentalRequest;
+use App\Http\Requests\UpdateRentalRequest;
 
 use App\Inventory;
 use App\Customer;
@@ -11,6 +13,7 @@ use App\Staff;
 use App\Rental;
 use App\Payment;
 use App\FilmText;
+use App\Film;
 
 use Redirect;
 use Session;
@@ -25,8 +28,7 @@ class RentalController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        
+    {       
         //$films=Film::search($request->title)->orderBy('id','DESC')->paginate(8);
 
             $inventories = Inventory::all();
@@ -36,6 +38,8 @@ class RentalController extends Controller
             return view('rental.index', compact('rentals'));
     }
 
+
+ 
     /**
      * Show the form for creating a new resource.
      *
@@ -43,27 +47,24 @@ class RentalController extends Controller
      */
     public function create()
     {
-        // $inventories->each(function($inventories){
-        //     $inventories->filmText;
-        //     //$inventories->categories;
-        //     // $films->filmText;
-        //     });
-
-        //$my = $inventories->pluck('filmText','id')->ToArray();
-        //$categories = Category::orderBy('name','ASC')->pluck('name','id');
+        
+    //pasan consulta a laravel
+    // select inv.id from inventories inv where not exists(select * from rentals where inv.id=inventory_id);
+       
         $inventories = Inventory::all();
         $title= $inventories->pluck('filmText')->pluck('title','id');
-        //$title = Inventory::orderBy('title','ASC');
-        //$a=Inventory::where('filmText', '=', 'title')->toSql();
 
-        $customers = Customer::orderBy('id')->pluck('first_name','id');
-        $staffs = Staff::orderBy('id')->pluck('first_name','id');
+        $customers = Customer::where('active', 'SI')->orderBy('id')->pluck('first_name','id');
+        $staffs = Staff::where('active', 'SI')->orderBy('id')->pluck('first_name','id');
+
+         //$film=Film::select('rental_rate')->where('id','=',1)->first();
 
         return view('rental.create')
                 //->with('inventories', $inventories)
                 ->with('title',$title)
                 ->with('customers', $customers)
                 ->with('staffs',$staffs);
+                // ->with('film',$film);
     }
 
     /**
@@ -72,7 +73,7 @@ class RentalController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRentalRequest $request)
     {
         $rental = new Rental($request->all());
         $rental->save();
@@ -105,9 +106,8 @@ class RentalController extends Controller
      */
     public function edit($id)
     {
-         $rental = Rental::find($id);
-         $payment = Payment::find($id);
-
+        $rental = Rental::find($id);
+        $payment = Payment::find($id);
 
         $inventories = Inventory::all();
         $title= $inventories->pluck('filmText')->pluck('title','id');
@@ -129,18 +129,15 @@ class RentalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRentalRequest $request, $id)
     {
         $rental = Rental::find($id);
         $rental->fill($request->all());   
         $rental->save();
 
-        //dd($rental);
-
         $payment = Payment::find($id);
         $payment->fill($request->all());   
         $payment->save();
-
 
         Session::flash('message','Renta de pelicula actualizada correctamente');   
         return Redirect::to('admin/rental');

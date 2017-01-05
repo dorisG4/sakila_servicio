@@ -45,7 +45,7 @@ class CategoryController extends Controller
             ]);
 
          Session::flash('message','Categoria creada correctamente');
-         return Redirect::to('/category');
+         return Redirect::to('admin/category');
     }
 
     /**
@@ -86,7 +86,7 @@ class CategoryController extends Controller
          $category->save();
 
          Session::flash('message','Categoria actualizada correctamente');
-         return Redirect::to('/category');
+         return Redirect::to('admin/category');
     }
 
     /**
@@ -99,7 +99,7 @@ class CategoryController extends Controller
     {
          Category::destroy($id);
          Session::flash('message','Categoria eliminada correctamente');
-         return Redirect::to('/category');
+         return Redirect::to('admin/category');
 
     }
 

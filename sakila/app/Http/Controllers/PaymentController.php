@@ -4,23 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Controllers\Controller;
-use App\Actor;
-use Session;
-use Redirect;
+use App\Payment;
 
-class ActorController extends Controller
+class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $actors=Actor::search($request->name)->orderBy('id','DESC')->paginate(5);
-        //$actors=Actor::orderBy('id','DES')->paginate(3);
-        return view('actor.index', compact('actors'));
+        
+            //$payments = Inventory::all();
+            //$title= $payments->pluck('filmText')->pluck('title','id');
+            $payments=Payment::orderBy('id','DESC')->paginate(4);
+   
+            return view('payment.index', compact('payments'));
     }
 
     /**
@@ -30,7 +30,7 @@ class ActorController extends Controller
      */
     public function create()
     {
-        return view('actor.create');
+        //
     }
 
     /**
@@ -41,13 +41,7 @@ class ActorController extends Controller
      */
     public function store(Request $request)
     {
-         Actor::create([
-            'first_name' => $request['first_name'],
-            'last_name' => $request['last_name'],
-            ]);
-
-         Session::flash('message','Actor creado correctamente');
-         return Redirect::to('admin/actor');
+        //
     }
 
     /**
@@ -69,8 +63,7 @@ class ActorController extends Controller
      */
     public function edit($id)
     {
-         $actor= Actor::find($id);
-         return view('actor.edit',['actor'=>$actor]);
+        //
     }
 
     /**
@@ -82,12 +75,7 @@ class ActorController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $actor = Actor::find($id);
-         $actor ->fill($request->all());
-         $actor ->save();
-
-         Session::flash('message','Actor actualizado correctamente');
-         return Redirect::to('admin/actor');
+        //
     }
 
     /**
@@ -98,8 +86,6 @@ class ActorController extends Controller
      */
     public function destroy($id)
     {
-         Actor::destroy($id);
-         Session::flash('message','Actor eliminado correctamente');
-         return Redirect::to('admin/actor');
+        //
     }
 }

@@ -26,19 +26,19 @@ class StoreCustomerRequest extends FormRequest
         return [
             
            'store_id' => 'required',
-           'first_name' => 'required',
-           'last_name' => 'required',
-           'email' => 'required|unique:customers',          
+           'first_name' => 'required|max:45|regex:/^[a-z]+$/i',
+           'last_name' => 'required|max:45|regex:/^[a-z]+$/i',
+           'email' => 'required|unique:customers|max:50|email',          
            'active' => 'required',
          
 
-           'address' => 'required',
-           'address2' => 'required',
-           'district' => 'required',
-           'postal_code' => 'required',
-           'phone' => 'required',
+           'address' => 'required|max:50',
+           'address2' => 'required|max:50',
+           'district' => 'required|max:20',
+           'postal_code' => 'required|numeric',
+           'phone' => 'required|numeric',
 
-           'city' => 'required',
+           'city' => 'required|max:50',
            'country_id' => 'required'
 
         ];

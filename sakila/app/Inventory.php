@@ -24,10 +24,10 @@ class Inventory extends Model
    	 return $this->belongsTo('App\Store');
    }
 
-     public function scopeSearch($query, $id)
+     public function scopeSearch($query, $title)
    {
     //return $query->where('title', 'LIKE', "%$name%");
-        return $query->where('id','id');
+        return $query->where('title', 'LIKE', "%$title%");
    }
 
      public function rental()

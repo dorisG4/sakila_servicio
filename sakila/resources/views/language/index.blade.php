@@ -36,7 +36,7 @@
 		</td>
 		<td>
 		{!!Form::open(['route'=>['language.destroy', $language->id], 'method'=>'DELETE'])!!}
-		{!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
+		{!!Form::submit('Eliminar',['class'=>'btn btn-danger', 'onclick'=>'return confirm("Seguro que desea eliminar?")'])!!}
 		{!!Form::close()!!} 
 		</td>		
 		

@@ -16,10 +16,9 @@
 				{!!Form::label('Pelicula:')!!}
 				{!!Form::select('inventory_id',$title,null,['class'=>'form-control select-options', 'placeholder'=>'Selecciona una opción'])!!}
 
-				{{-- {!! Form::select('original_language_id', [1, 2, 3],null, ['class'=>'form-control select-options','placeholder'=>'Selecciona un idioma'])!!} --}}
-
 				{!!Form::label('Cliente:')!!}
 				{!!Form::select('customer_id',$customers, null,['class'=>'form-control select-options', 'placeholder'=>'Selecciona una opción'])!!}
+				
 
 				{!!Form::label('Fecha de entrega:')!!}
 				{!!Form::date('return_date', null,['class'=>'form-control'])!!}
@@ -33,27 +32,23 @@
 		    <h3>Datos de Pago</h3><hr>
 
 				{!!Form::label('Cantidad:')!!}
-				{!!Form::text('amount', null,['class'=>'form-control '])!!}
+				{!!Form::text('amount',null,['class'=>'form-control'])!!}
+				{{-- {!!Form::text('amount', $film->rental_rate,['class'=>'form-control ','readonly'])!!} --}}
 
 				{!!Form::label('Fecha de pago:')!!}
 				{!!Form::text('payment_date',date("Y-m-d"),['class'=>'form-control' ,'readonly'])!!}
+	
 					
 					<br>
 					<div class="form-group col-md-6">			
-
-	 				{!!Form::submit('Agregar',['class'=>'btn btn-primary'])!!} </div>
-
-
-	 					<div class="form-group col-md-6">
-						<a href="{{ route('rental.index')}}" class="btn btn-warning">Cancelar</a>
-						</div>
+	 				{!!Form::submit('Agregar',['class'=>'btn btn-primary'])!!} 
+	 				</div>
 
 
-
-
+	 				<div class="form-group col-md-6">
+					<a href="{{ route('rental.index')}}" class="btn btn-warning">Cancelar</a>
+					</div>
 		</div>	
-
-
 
 {!!Form::close()!!}
 
@@ -75,6 +70,16 @@
 		$('.select-options').chosen({
 				placeholder_text_single: 'Seleccione una opción...'
 		});
+
+		// $('#film').on('change', function(e){
+		// console.log(e);
+		// var film_id = e.target.value;
+		// //ajax
+		// $.get('/ajax-subcat?film_id' + film_id, function(data){
+		// //sucess data
+		// console.log(data);
+		// });
+		// });
 
 	</script>
 @endsection

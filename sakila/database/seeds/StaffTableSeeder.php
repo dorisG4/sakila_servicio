@@ -16,7 +16,7 @@ class StaffTableSeeder extends Seeder
      */
     public function run()
     {
-    	
+    	             //Datos del Arministrador
                    $city = new City;
                    $city->city = 'aaa';
                    $city->country_id = 2;
@@ -25,7 +25,7 @@ class StaffTableSeeder extends Seeder
                    $address = new Address;
                    $address->address='aaa';
                    $address->address2= 'aaa';
-                   $address->district= 'aaa';
+                   $address->district= '00';
                    $address->city()->associate($city);
                    $address->postal_code= '0000';
                    $address->phone = '0000000';
@@ -33,16 +33,17 @@ class StaffTableSeeder extends Seeder
 
                    $staff = new Staff;
                    $staff->first_name ='Administrador';
-                   $staff->first_name ='Administrador';
-                   $staff->last_name  = 'x';
+                   $staff->last_name  = 'Administrador';
                    $staff->address()->associate($address); 
-                   $staff->picture  = 'x';  
+                   $staff->picture  = 'staff_1483440353.png';  
                    $staff->email    ='admin@gmail.com';
                    $staff->store_id = 1;
                    $staff->active   ='SI';
                    $staff->username = 'administrador';
-                   $staff->password =  bcrypt('admin');                     
+                   $staff->password =  bcrypt('administrador');                     
                    $staff->save();
+
+                  
 
     }
 }

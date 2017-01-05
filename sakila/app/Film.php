@@ -37,13 +37,11 @@ class Film extends Model
    {
      return $this->hasMany('App\FilmText');
    }
-
     
     public function categories()
    {
      return $this->belongsToMany('App\Category');
    }
-
 
     public function actors()
    {

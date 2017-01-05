@@ -9,7 +9,7 @@
 			<div class="top-header">
 
 				<div class="logo">
-					<a href="index.html"><img src="images/logo.png" alt="" /></a>
+					<a href="/"><img src="images/logo.png" alt="" /></a>
 					<p>OCD</p>
 				</div>
 				

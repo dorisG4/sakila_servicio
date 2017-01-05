@@ -25,22 +25,22 @@ class StoreStaffRequest extends FormRequest
     {
         return [
             
-       'first_name' => 'required',
-       'last_name' => 'required',
+       'first_name' => 'required|max:45|regex:/^[a-z]+$/i',
+       'last_name' => 'required|max:45|regex:/^[a-z]+$/i',
        'picture' => 'required',
-       'email' => 'required|unique:staff',
+       'email' => 'required|unique:staff|max:50',
        'store_id' => 'required',
        'active' => 'required',
-       'username' => 'required|unique:staff',
-       'password' => 'required',
+       'username' => 'required|unique:staff|max:16',
+       'password' => 'required|max:40',
 
-       'address' => 'required',
-       'address2' => 'required',
-       'district' => 'required',
-       'postal_code' => 'required',
-       'phone' => 'required',
+       'address' => 'required|max:50',
+       'address2' => 'required|max:50',
+       'district' => 'required|max:20',
+       'postal_code' => 'required|numeric',
+       'phone' => 'required|numeric',
 
-       'city' => 'required',
+       'city' => 'required|max:50',
        'country_id' => 'required'
 
         ];

@@ -34,5 +34,10 @@ class Store extends Model
      return $this->hasMany('App\Inventory');
    }
 
+    public function manager()
+   {
+     return $this->hasMany('App\Manager');
+   }
+
   
 }

@@ -61,19 +61,7 @@ class StaffController extends Controller
      */
     public function store(StoreStaffRequest $request)
     {
-        // Staff::create([
-        //    'first_name' => $request['first_name'],
-        //    'last_name' => $request['last_name'],
-        //    'address_id' => $request['address_id'],
-        //    'picture' => $request['picture'],
-        //    'email' => $request['email'],
-        //    'store_id' => $request ['store_id'],
-        //    'active' => $request ['active'],
-        //    'username' => $request ['username'],
-        //    'password' => $request ['password'],
-        //    'username'=>$request['username'],
-        //     ]);
-
+      
         //manipulacion de imagenes
         if($request->file('picture'))
         {
@@ -123,9 +111,7 @@ class StaffController extends Controller
      */
     public function edit( $id)
     {
-        //$staff = Staff::find($id);
-        //return view('staff.edit', ['staff'=>$staff]);
-        //return view('staff.edit');
+       
         $staff = Staff::find($id);
         //$password=$staff->password;
         //$password = Hash::make(Input::get('password'));
@@ -148,8 +134,7 @@ class StaffController extends Controller
                ->with('stores',$stores);
 
         //dd($password);
-
-
+        //dd($staff->password);
     }
 
     /**
@@ -175,6 +160,7 @@ class StaffController extends Controller
        
         $staff = Staff::find($id);
         $address_id=$staff->address_id; 
+        
         //$picture=$staff->picture;
                 
         $address = Address::find($address_id);
@@ -187,15 +173,32 @@ class StaffController extends Controller
         $address->fill($request->all());
         $address->city()->associate($city); 
         $address->save();
-      
-        $staff->fill($request->all());
-        $staff->address()->associate($address); 
-        $staff->password=bcrypt($request['password']); 
-        //$staff->picture=$picture;
-        $staff->save();
-                         
-        Session::flash('message','Empleado actualizado correctamente');   
-        return Redirect::to('admin/staff');
+
+        $a=Input::get('password');
+
+            if ($a=="") {
+                
+                $password=$staff->password; 
+
+                $staff->fill($request->all());
+                $staff->address()->associate($address);
+                $staff->password=$password;  
+                $staff->save();        
+                      }
+
+       else{
+
+            $staff->fill($request->all());
+            $staff->address()->associate($address); 
+            //$staff->password=bcrypt($request['password']); 
+            $staff->password=bcrypt($request['password']); 
+            //$staff->picture=$picture;
+            $staff->save();
+            //dd($staff);
+           }         
+
+            Session::flash('message','Empleado actualizado correctamente');   
+            return Redirect::to('admin/staff');
          
     }
 

@@ -15,19 +15,11 @@ class InvetoryController extends Controller
      */
     public function index(Request $request)
     {
-        //$inventory=Inventory::search($request->title)->orderBy('id','DESC')->paginate(8);
-         // $inventories = Inventory::all();
-        //$inventories = Inventory::with('filmText')->get();
-        //$inventories = Inventory::search($request->id)->with('filmText')->get();
-
-        //$inventories = Inventory::search($request->id)->all('id');
-        //$inventories=Inventory::orderBy('id','ASC');
-        // return view('inventory.index', compact('inventories')); 
-
+     
         //$inventories = Inventory::search($request->all('id'))->get();
         $inventories= Inventory::all(); 
         //$inventories = Inventory::with('filmText')->get();
-        $inventories=Inventory::search($request->id)->orderBy('title','DESC');
+        $inventories=Inventory::search($request->title)->orderBy('title','DESC');
         $inventories = Inventory::paginate(3);
         
         //return $inventories; 

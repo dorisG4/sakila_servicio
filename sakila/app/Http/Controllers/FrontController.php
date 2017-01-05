@@ -9,10 +9,11 @@ class FrontController extends Controller
 {
     
     public function __construct()
-        {
-            //$this->middleware('auth', ['only' => 'admin']);
-             $this->middleware('auth', ['only' => 'admin']);  //bloque de acceso
-        }
+    {
+        //$this->middleware('auth', ['only' => 'admin']);
+         $this->middleware('guest', ['only' => 'index']);  //bloque de acceso
+         $this->middleware('auth', ['only' => 'admin']);  //bloque de acceso
+    }
     
     public function index(){
     	return view('index');

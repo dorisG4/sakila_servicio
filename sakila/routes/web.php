@@ -20,9 +20,6 @@ Route::get('admin','FrontController@admin');
 // Route::get('contacto','FrontController@Contacto');
 // Route::get('reviews','FrontController@reviews');
 
-
-
-
 Route::group(['prefix'=>'admin', 'middleware' => 'auth'], function(){
 
 	//Route::get('admin','FrontController@admin');
@@ -36,6 +33,8 @@ Route::group(['prefix'=>'admin', 'middleware' => 'auth'], function(){
 	Route::resource('customers','CustomerController');
 	Route::resource('inventory','InvetoryController');
 	Route::resource('rental','RentalController');
+	Route::resource('payment','PaymentController');
+	Route::resource('manager','ManagerController');
 
 	//Route::resource('log','LogController');
 	
@@ -64,10 +63,15 @@ Route::group(['prefix'=>'admin', 'middleware' => 'auth'], function(){
 				'as' => 'rental.destroy'
 			    ]);
 
+			// Route::get('/ajax-subcat', function(){
+			// $film_id = Input::get('film_id');
+			// $subcat = Film::where('film_id', '=', $film_id)->get();
+
+			// return Response::json($subcat);
+
+			// });
 
 });
-
-
 
 //Route::get('admin','LogController@index');
 //Route::resource('admin','LogController');

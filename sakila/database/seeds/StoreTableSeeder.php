@@ -15,7 +15,8 @@ class StoreTableSeeder extends Seeder
      */
     public function run()
     {
-          
+
+                  //insercion de sucursal 1    
                    $city = new City;
                    $city->city = 'x';
                    $city->country_id = 1;
@@ -32,9 +33,8 @@ class StoreTableSeeder extends Seeder
 
                    $store = new Store;
                    $store->address()->associate($address);       
-                   $store->save();
+                   $store->save();  
 
-        
-    
+
     }
 }

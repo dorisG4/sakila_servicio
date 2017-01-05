@@ -17,10 +17,11 @@ class CreateManagersTable extends Migration
             $table->increments('id');
 
             $table->integer('store_id')->unsigned();
-            $table->integer('manager_staff_id')->unsigned();
+            // $table->integer('manager_staff_id')->unsigned();
+             $table->integer('staff_id')->unsigned();
 
             $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
-            $table->foreign('manager_staff_id')->references('id')->on('staff')->onDelete('cascade');
+            $table->foreign('staff_id')->references('id')->on('staff')->onDelete('cascade');
 
             $table->timestamps();
         });

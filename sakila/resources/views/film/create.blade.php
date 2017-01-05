@@ -30,16 +30,25 @@
 	</div>
 
 	<div class="form-group col-md-4">	
-
+	
 	    {!!Form::label('rental_rate','Tarifa del alquiler:')!!}
-	  	{!!Form::text('rental_rate', null,['class'=>'form-control'])!!}	
+	  {{-- 	{!!Form::text('rental_rate', null,['class'=>'form-control'])!!}	 --}}
+	  	<div class="input-group">
+		  <span class="input-group-addon">$</span>
+		  <input type="text" name="rental_rate" class="form-control" aria-label="Amount (to the nearest dollar)">
+		</div>
 
 		{!!Form::label('length','Duración de la pelicula:')!!}
 		{!!Form::text('length', null,['class'=>'form-control'])!!}
 	   
 		{!!Form::label('replacement_cost','Costo de reposición:')!!}
-		{!!Form::text('replacement_cost', null,['class'=>'form-control'])!!}
+		<div class="input-group">
+		  <span class="input-group-addon">$</span>
+		  <input type="text" name="replacement_cost" class="form-control" aria-label="Amount (to the nearest dollar)">
+		</div>
 
+		{{-- {!!Form::text('replacement_cost', null,['class'=>'form-control'])!!}
+ --}}
 		{!!Form::label('rating','Clasificación:')!!}
 		{!!Form::select ('rating',['G'=>'G','PG'=>'PG','PG-13'=>'PG-13','R'=>'R','NC-17'=>'NC-17'], null,['class'=>'form-control select-options','placeholder'=>'Selecciona una clasificación'])!!}
 

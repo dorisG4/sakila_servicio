@@ -16,7 +16,6 @@
 
 		{{-- {!!Form::label('picture','Foto:')!!}
 		{!!Form::file('picture')!!} 
-
 		{!!Form::label ($staff->picture )!!}	--}}
 		<br>
 
@@ -32,7 +31,7 @@
 		{!!Form::label ('Usuario:' )!!}
 		{!!Form::text('username', $staff->username,['class'=>'form-control'])!!}
 
-		{!!Form::label ('Password:' )!!}
+		{!!Form::label ('Cambiar Password:' )!!}
 		{!!Form::password('password',['class'=>'form-control'])!!}
 
 	</div>

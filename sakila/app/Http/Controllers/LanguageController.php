@@ -45,7 +45,7 @@ class LanguageController extends Controller
             ]);
 
          Session::flash('message','Idioma creado correctamente');
-         return Redirect::to('/language');
+         return Redirect::to('admin/language');
     }
 
     /**
@@ -85,7 +85,7 @@ class LanguageController extends Controller
          $language->save();
 
          Session::flash('message','Idioma actualizado correctamente');
-         return Redirect::to('/language');
+         return Redirect::to('admin/language');
     }
 
     /**
@@ -98,6 +98,6 @@ class LanguageController extends Controller
     {
          Language::destroy($id);
          Session::flash('message','Idioma eliminado correctamente');
-         return Redirect::to('/language');
+         return Redirect::to('admin/language');
     }
 }

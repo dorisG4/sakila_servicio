@@ -3,13 +3,13 @@
 @section('content')
 <h2>Invetario de Peliculas</h2>
 
-<!--Buscador de Pelicula -->
-		{!! Form::open(['route' => 'inventory.index', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search'])!!}
+<!--Buscador de inventario-->
+	{{-- 	{!! Form::open(['route' => 'inventory.index', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search'])!!}
 		    <div class="form-group">
-		     {!! Form::text('id', null, ['class'=>'form-control', 'placeholder'=>'Titulo...']) !!}
+		     {!! Form::text('title', null, ['class'=>'form-control', 'placeholder'=>'Titulo...']) !!}
 		    </div>
             <button type="submit" class="btn btn-default">Buscar</button>
-        {!! Form::close() !!}
+        {!! Form::close() !!} --}}
 <!--Fin Buscador -->
 
 <hr>
@@ -28,13 +28,7 @@
 			<td>{{$inventory->id}}</td>
 			<td>{{$inventory->filmText->title}}</td>
 			<td>{{$inventory->filmText->description}}</td>
-			<td>{{$inventory->store_id}}</td>
-			{{-- <td>{{$inventory->email}}</td>
-			<td>{{$inventory->active}}</td>
-			<td>{{$inventory->address->phone}}</td>
-			<td>{{$inventory->address->city->city}}</td>
-			<td>{{$inventory->store_id}}</td> --}}
-		
+			<td>{{$inventory->store_id}}</td>		
 		{{-- 	<td>
 				<a href="{{route('inventories.edit',$inventory->id) }}" class="btn btn-success" title="Actualizar"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
 

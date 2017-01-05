@@ -21,7 +21,9 @@
 
 				{!!Form::label('Cliente:')!!}
 				{!!Form::select('customer_id',$customers, null,['class'=>'form-control select-options', 'placeholder'=>'Selecciona una opción'])!!}
-
+				{{-- {!!Form::label($customers->last_name)!!}
+				{!!Form::label('Cliente:')!!} --}}
+				
 				{!!Form::label('Fecha de entrega:')!!}
 				{!!Form::date('return_date', null,['class'=>'form-control'])!!}
 

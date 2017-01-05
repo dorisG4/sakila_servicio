@@ -42,10 +42,14 @@ class Staff extends Model
    	 return $this->belongsTo('App\Store');
    }
 
-
     public function rental()
    {
      return $this->hasMany('App\Rental');
+   }
+
+    public function manager()
+   {
+     return $this->hasMany('App\Manager');
    }
 
 }

@@ -3,10 +3,10 @@
 @section('content')
 <h2>Clientes</h2>
 
-
 			<div class="form-group">
 		     <a href="{{ route('customers.create')}}" class="btn btn-info">Registrar nuevo Cliente</a>
 		    </div><hr>
+		    
 <table class="table table-striped">
 	<thead>
 

@@ -3,7 +3,7 @@
 @section('content')
 <h2>Rentas de Peliculas</h2>
 
-<!--Buscador de Actor -->
+<!--Buscador de rentas -->
 	{{-- 	{!! Form::open(['route' => 'actor.index', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search'])!!}
 		    <div class="form-group">
 		     {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Actor...']) !!}
@@ -41,9 +41,13 @@
 		<td>{{$rental->return_date}}</td>
 		<td>{{$rental->staff->first_name}}</td>
 		<td>
-		<a href="{{route('rental.edit',$rental->id) }}" class="btn btn-success" title="Actualizar"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
+		        <a href="{{route('rental.edit',$rental->id) }}" class="btn btn-success" title="Actualizar">
+		        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+		        </a>
 
-				<a href="{{route('rental.destroy',$rental->id)}}" onclick="return confirm('¿Seguro que desea eliminarlo?')" class="btn btn-danger" title="Eliminar" ><span class="glyphicon glyphicon-remove"></span></a>	
+				<a href="{{route('rental.destroy',$rental->id)}}" onclick="return confirm('¿Seguro que desea eliminarlo?')" class="btn btn-danger" title="Eliminar" >
+				<span class="glyphicon glyphicon-remove"></span>
+				</a>	
 		</td>		
 		
 	</thead>

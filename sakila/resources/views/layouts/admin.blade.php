@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cine OCD</title>
 
+
+   
     {!!Html::style('css/bootstrap.min.css')!!}
     {!!Html::style('css/metisMenu.min.css')!!}
     {!!Html::style('css/sb-admin-2.css')!!}
@@ -115,7 +117,7 @@
                                     <a href="/admin/stores"><i class='fa fa-plus fa-fw'></i>Sucursal</a>
                                 </li>
                                  <li>
-                                    <a href="/admin/manager"><i class='fa fa-plus fa-fw'></i>Encargados</a>
+                                    <a href="/admin/manager"><i class='fa fa-plus fa-fw'></i>Gerentes</a>
                                 </li>
                                
                             </ul>
@@ -129,16 +131,6 @@
                                 </li>
                             </ul>
                         </li>
-
-                         <li>
-                            <a href="#"><i ></i> Reportes<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#"><i class='fa fa-plus fa-fw'></i>Ventas</a>
-                                </li>
-                            </ul>
-                        </li>
-
                     </ul>
 
                 </div>
